@@ -26,6 +26,9 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Preparing Container
         uses: pkgforge-dev/anylinux-setup-action@7278cbb7c3692fce7241d427614ef7984192f138 # v3
+        env:
+          # use the quick-sharun from the per-user p11-kit trust path PR
+          QUICK_SHARUN: https://raw.githubusercontent.com/Nemo-010/Anylinux-AppImages/82a82459aa90be8794b5613563a2fe6a81775cc6/useful-tools/quick-sharun.sh
       - name: Install Dependencies
         run: /bin/sh ./get-dependencies.sh
       - name: Make AppImage
